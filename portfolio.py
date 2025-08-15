@@ -11,8 +11,8 @@ with c2:
         """
         <p style='font-size:18px '>
         <br/> <br/> <br/>
-        I’m Charan Kumar Reddy, a skilled Data Engineer with expertise in data visualization, transformation, and management. 
-        With a strong background in tools like Tableau, PySpark, Azure Data Factory, and SQL, I specialize in designing and 
+        I’m <b> Charan Kumar Reddy </b>, a skilled Data Engineer with expertise in data visualization, transformation, and management. 
+        With a strong background in tools like Tableau, SQL, Python, PySpark and Azure Data Factory, I specialize in designing and 
         optimizing data pipelines, creating insightful dashboards, and ensuring data accuracy for business decision-making. 
         Passionate about turning raw data into actionable insights, I strive to bridge the gap between complex datasets 
         and clear, impactful business outcomes.
