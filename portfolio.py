@@ -7,10 +7,11 @@ with c1:
     st.image("charan photo.jpg")
 
 with c2:
+    st.header("Hello")
     st.markdown(
         """
         <p style='font-size:18px; text-align:justify;'>
-        <br/> <br/> <br/>
+        <br/>
         I’m <b> Charan Kumar Reddy</b>, a skilled Data Engineer with expertise in data visualization, transformation, and management. 
         With a strong background in tools like Tableau, SQL, Python, PySpark and Azure Data Factory, I specialize in designing and 
         optimizing data pipelines, creating insightful dashboards, and ensuring data accuracy for business decision-making. 
@@ -22,3 +23,5 @@ with c2:
 
 
 st.markdown('''---''')
+
+st.write("You can try my, games below")
