@@ -7,10 +7,7 @@ with c1:
   st.image("charan photo.jpg",)
 
 with c2:
-    st.title('''CHARAN
-    KUMAR
-    REDDY
-    SOMAGARI''')
+    st.title("CHARAN\nKUMAR\nREDDY\nSOMAGARI")
     
     
 st.write('print the image bro')
