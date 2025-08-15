@@ -2,16 +2,9 @@ import streamlit as st
 
 st.title('WELCOME')
 
-c1,c2 = st.columns([3,1])
-with c1:
-  st.image("charan photo.jpg",)
+st.image("charan photo.jpg",)
 
-with c2:
-    st.markdown(
-        "<p style='font-size:24px;'><b><br><br><br><br>CHARAN<br>KUMAR<br>REDDY<br>SOMAGARI</b></p>",
-        unsafe_allow_html=True
-    )
+st.header('''My Self Charan Kumar Reddy Somagari, Data engineer by profession skilled in Visualization, Tranformation and managing the data,
+          holding Master's degree in Business Administration.''')
 
-    
-    
-st.write('print the image bro')
+st.write('want to know here')
