@@ -94,8 +94,8 @@ if st.button('submit'):
             st.write(f"sorry, runner ups are : {ipl_runner_ups[st.session_state.year]}")
             st.session_state.score -= 1
 
-c22.title(f"Score {st.session_state.score}")
-if st.button("🔄 Next Year"):
     st.session_state.year = rm.choice(years)
     st.rerun()
+
+c22.title(f"Score {st.session_state.score}")
 
