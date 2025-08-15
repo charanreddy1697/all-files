@@ -8,7 +8,7 @@ st.title('YOUR CSV GENERATOR')
 
 a1, a2 = st.columns(2)
 a1.write('Enter the number of rows')
-rows = a2.number_input('Number of rows', min_value=1, max_value=10000, value=5)
+rows = a2.number_input('', min_value=1, max_value=10000, value=5)
 
 # Amount range
 b1, b2, b3 = st.columns(3)
