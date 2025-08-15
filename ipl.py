@@ -60,14 +60,16 @@ teams = ['Rajasthan Royals', 'Deccan Chargers', 'Chennai Super Kings',
 if "year" not in st.session_state:
     st.session_state.year = rm.choice(years)
 
-c1,c2,c3 = st.columns(3)
+
 if 'score' not in st.session_state:
     st.session_state.score = 0
-    
+c1,c2,c3,c4,c5 = st.columns([1,3,1)    
 with c2:
     st.title(f"IPL QUIZ GAME")
-    st.title(f"Year : {st.session_state.year}")
-    st.title(f"Score {st.session_state.score}")
+
+c11,c22 = st.columns(2)
+c11.title(f"Year : {st.session_state.year}")
+c22.title(f"Score {st.session_state.score}")
     
 a1,a2 = st.columns(2)
 w = a1.selectbox('Winner team',teams)
