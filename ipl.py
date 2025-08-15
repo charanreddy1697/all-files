@@ -24,14 +24,14 @@ ipl_winners = {
 
 ipl_runner_ups = {
     2008: "Chennai Super Kings",
-    2009: "Royal Challengers Bangalore",
+    2009: "Royal Challengers Bengaluru",
     2010: "Mumbai Indians",
-    2011: "Royal Challengers Bangalore",
+    2011: "Royal Challengers Bengaluru",
     2012: "Chennai Super Kings",
     2013: "Chennai Super Kings",
     2014: "Kings XI Punjab",
     2015: "Chennai Super Kings",
-    2016: "Royal Challengers Bangalore",
+    2016: "Royal Challengers Bengaluru",
     2017: "Rising Pune Supergiant",
     2018: "Sunrisers Hyderabad",
     2019: "Chennai Super Kings",
@@ -40,7 +40,7 @@ ipl_runner_ups = {
     2022: "Rajasthan Royals",
     2023: "Gujarat Titans",
     2024: "Sunrisers Hyderabad",
-    2025: "Punjab Kings"}
+    2025: "Kings XI Punjab"}
 
 years = [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 
  2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
@@ -54,8 +54,8 @@ import random as rm
 
 teams = ['Rajasthan Royals', 'Deccan Chargers', 'Chennai Super Kings',
  'Kolkata Knight Riders', 'Mumbai Indians', 'Sunrisers Hyderabad',
- 'Gujarat Titans', 'Royal Challengers Bengaluru', 'Royal Challengers Bangalore',
- 'Kings XI Punjab', 'Rising Pune Supergiant', 'Delhi Capitals', 'Punjab Kings']
+ 'Gujarat Titans', 'Royal Challengers Bengaluru','Gujarat Titans',
+ 'Kings XI Punjab', 'Rising Pune Supergiant', 'Delhi Capitals']
 
 if "year" not in st.session_state:
     st.session_state.year = rm.choice(years)
@@ -77,20 +77,22 @@ r = a2.selectbox('Runner Up team',teams)
 
 b1,b2 = st.columns(2)
 
-with b1:        
-    if ipl_winners[st.session_state.year] == w :
-        st.write('correct')
-        st.session_state.score += 1
-    else:
-        st.write(f"sorry, winners are : {ipl_winners[st.session_state.year]}")
-        st.session_state.score -= 1
-with b2:
-    if ipl_runner_ups[st.session_state.year] == r :
-        st.write('correct')
-        st.session_state.score += 1 
-    else:
-        st.write(f"sorry, runner ups are : {ipl_runner_ups[st.session_state.year]}")
-        st.session_state.score -= 1
+
+if st.button('submit'):
+    with b1:        
+        if ipl_winners[st.session_state.year] == w :
+            st.write('correct')
+            st.session_state.score += 1
+        else:
+            st.write(f"sorry, winners are : {ipl_winners[st.session_state.year]}")
+            st.session_state.score -= 1
+    with b2:
+        if ipl_runner_ups[st.session_state.year] == r :
+            st.write('correct')
+            st.session_state.score += 1 
+        else:
+            st.write(f"sorry, runner ups are : {ipl_runner_ups[st.session_state.year]}")
+            st.session_state.score -= 1
 
 if st.button("🔄 Next Year"):
     st.session_state.year = rm.choice(years)
