@@ -95,7 +95,7 @@ if st.button('submit'):
             st.session_state.score -= 1
 
     st.session_state.year = rm.choice(years)
-    time.sleep(3)
+    time.sleep(1)
     st.rerun()
 
 c22.title(f"Score {st.session_state.score}")
