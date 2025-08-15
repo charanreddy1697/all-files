@@ -47,7 +47,7 @@ years = [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,
 
 import random as rm
 
-import random as rm
+import time
 
 
 
@@ -95,6 +95,7 @@ if st.button('submit'):
             st.session_state.score -= 1
 
     st.session_state.year = rm.choice(years)
+    time.sleep(3)
     st.rerun()
 
 c22.title(f"Score {st.session_state.score}")
