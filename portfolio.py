@@ -12,7 +12,7 @@ c1, c2 = st.columns([1, 2], gap="large")
 with c1:
     st.image(
         "https://raw.githubusercontent.com/charanreddy1697/all-files/main/charan%20photo.jpg",
-        use_column_width=True
+        
     )
 
 with c2:
