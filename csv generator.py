@@ -48,11 +48,11 @@ if st.button('Generate CSV'):
     alias_map = {field_col_name: field_col_name, 'ID': 'TIMES APPEARED'}
 
     
-    v1 = df.groupby(field_col_name)['ID'].count()
-    # Rename the columns
-    alias = {field_col_name: field_col_name, 'ID': 'TIMES APPEARED'}
-    v = v1.rename(columns=alias)
-    st.write(v)
+    # Count repetitions
+    st.write('### Repetitions of each value')
+    v1 = df.groupby(field_col_name)['ID'].count().reset_index()
+    v1.columns = [field_col_name, 'TIMES APPEARED']
+    st.write(v1)
     
     # Download
     csv = df.to_csv(index=False)
