@@ -15,10 +15,11 @@ amount_max = b2.number_input('Max amount', 10, 1000, 10)
 
 # Column name for field values
 field_col_name = st.text_input('Enter field name (like City or Region)', placeholder='City')
+c1, c2, c3 = st.columns(3)
 st.write('Enter the possible values for the field')
 
 # Field values
-c1, c2, c3 = st.columns(3)
+
 value1 = c1.text_input("", placeholder='Value1')
 value2 = c2.text_input("", placeholder='Value2')
 value3 = c3.text_input("", placeholder='Value3')
