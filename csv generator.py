@@ -25,6 +25,7 @@ value3 = c3.text_input("Value3", placeholder='city3')
 
 
 # Generate CSV Button
+
 if st.button('Generate CSV'):
     ids = []
     fields = []
@@ -40,11 +41,11 @@ if st.button('Generate CSV'):
         field_col_name: fields,
         "Amount": amounts
     })
-
-    st.write(df.head())
     st.write('displaying top 5 rows')
-
-    v1 = df.groupby(field_col_name).count()
+    st.write(df.head())
+    
+    st.write('repititions of each value')
+    v1 = df.groupby(field_col_name)['ID'].count()
     st.write(v1)
     
     # Download
