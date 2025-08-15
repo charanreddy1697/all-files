@@ -6,8 +6,7 @@ st.title('YOUR CSV GENERATOR')
 
 # Rows input
 
-st.write('Enter the number of rows')
-rows = st.number_input('', min_value=1, max_value=10000, value=5)
+rows = st.number_input('Enter the number of rows', min_value=1, max_value=10000, value=5)
 st.write('Specify the range for amount column')
 # Amount range
 b1, b2 = st.columns(2)
@@ -16,10 +15,10 @@ amount_max = b2.number_input('Max amount', 10, 1000, 10)
 
 # Column name for field values
 field_col_name = st.text_input('Enter field name (like City or Region)', placeholder='City')
+st.write('Enter the possible values for the field')
 
 # Field values
 c1, c2, c3 = st.columns(3)
-st.write('Enter the possible values for the field')
 value1 = c1.text_input("", placeholder='Value1')
 value2 = c2.text_input("", placeholder='Value2')
 value3 = c3.text_input("", placeholder='Value3')
