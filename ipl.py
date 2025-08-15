@@ -77,8 +77,8 @@ r = a2.selectbox('Runner Up team',teams)
 
 b1,b2 = st.columns(2)
 
-
-if st.button('submit'):
+c1,c2,c3 = st.columns([1,3,1])
+if c1.button('submit'):
     with b1:        
         if ipl_winners[st.session_state.year] == w :
             st.write('correct')
@@ -94,9 +94,11 @@ if st.button('submit'):
             st.write(f"sorry, runner ups are : {ipl_runner_ups[st.session_state.year]}")
             st.session_state.score -= 1
 
-    st.session_state.year = rm.choice(years)
-    time.sleep(1)
-    st.rerun()
+
 
 c22.title(f"Score {st.session_state.score}")
 
+if c2.button('Next'):
+    st.session_state.year = rm.choice(years)
+    time.sleep(1)
+    st.rerun()
