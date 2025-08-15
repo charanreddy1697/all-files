@@ -61,11 +61,11 @@ if "year" not in st.session_state:
     st.session_state.year = rm.choice(years)
 
 c1,c2,c3 = st.columns([1,3,1])
-c2.write(st.session_state.year)
+c2.title(f"Year : {st.session_state.year}")
 
 a1,a2 = st.columns(2)
-a1.selectbox('winner team',teams)
-a2.selectbox('runner up team',teams)
+a1.selectbox('Winner team',teams)
+a2.selectbox('Runner Up team',teams)
 
 
 if st.button("🔄 Next Year"):
