@@ -10,6 +10,7 @@ with c2:
     st.markdown(
         """
         <p style='font-size:18px '>
+        <br/> <br/> <br/>
         I’m Charan Kumar Reddy, a skilled Data Engineer with expertise in data visualization, transformation, and management. 
         With a strong background in tools like Tableau, PySpark, Azure Data Factory, and SQL, I specialize in designing and 
         optimizing data pipelines, creating insightful dashboards, and ensuring data accuracy for business decision-making. 
