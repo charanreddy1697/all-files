@@ -98,7 +98,7 @@ if c1.button('submit'):
 
 c22.title(f"Score {st.session_state.score}")
 
-if c2.button('Next'):
+if c3.button('Next'):
     st.session_state.year = rm.choice(years)
     time.sleep(1)
     st.rerun()
