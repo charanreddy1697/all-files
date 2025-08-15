@@ -41,7 +41,7 @@ if st.button('Generate CSV'):
         "Amount": amounts
     })
 
-    st.write(df)
+    st.write(df.head())
     st.write('displaying top 5 rows')
 
     # Download
