@@ -44,14 +44,12 @@ if st.button('Generate CSV'):
     st.write('displaying top 5 rows')
     st.write(df.head())
     
-    st.write('repititions of each value')
-    alias_map = {field_col_name: field_col_name, 'ID': 'TIMES APPEARED'}
+
 
     
     # Count repetitions
     st.write('### Repetitions of each value')
     v1 = df.groupby(field_col_name)['ID'].count()
-    v1.columns = [field_col_name, 'TIMES APPEARED']
     st.write(v1)
     
     # Download
