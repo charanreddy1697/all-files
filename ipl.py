@@ -69,7 +69,7 @@ with c2:
 
 c11,c22 = st.columns(2)
 c11.title(f"Year : {st.session_state.year}")
-c22.title(f"Score {st.session_state.score}")
+
     
 a1,a2 = st.columns(2)
 w = a1.selectbox('Winner team',teams)
@@ -94,6 +94,7 @@ if st.button('submit'):
             st.write(f"sorry, runner ups are : {ipl_runner_ups[st.session_state.year]}")
             st.session_state.score -= 1
 
+c22.title(f"Score {st.session_state.score}")
 if st.button("🔄 Next Year"):
     st.session_state.year = rm.choice(years)
     st.rerun()
