@@ -1,110 +1,74 @@
-import streamlit as st
-import random
+import streamlit as st 
+st.set_page_config(layout="wide")
 
-st.set_page_config(page_title="IPL Match Simulator", layout="centered")
+ipl_winners = {
+    2008: "Rajasthan Royals",
+    2009: "Deccan Chargers",
+    2010: "Chennai Super Kings",
+    2011: "Chennai Super Kings",
+    2012: "Kolkata Knight Riders",
+    2013: "Mumbai Indians",
+    2014: "Kolkata Knight Riders",
+    2015: "Mumbai Indians",
+    2016: "Sunrisers Hyderabad",
+    2017: "Mumbai Indians",
+    2018: "Chennai Super Kings",
+    2019: "Mumbai Indians",
+    2020: "Mumbai Indians",
+    2021: "Chennai Super Kings",
+    2022: "Gujarat Titans",
+    2023: "Chennai Super Kings",
+    2024: "Kolkata Knight Riders",
+    2025: "Royal Challengers Bengaluru"
+}
 
-st.title("🏏 IPL Match Simulator")
+ipl_runner_ups = {
+    2008: "Chennai Super Kings",
+    2009: "Royal Challengers Bangalore",
+    2010: "Mumbai Indians",
+    2011: "Royal Challengers Bangalore",
+    2012: "Chennai Super Kings",
+    2013: "Chennai Super Kings",
+    2014: "Kings XI Punjab",
+    2015: "Chennai Super Kings",
+    2016: "Royal Challengers Bangalore",
+    2017: "Rising Pune Supergiant",
+    2018: "Sunrisers Hyderabad",
+    2019: "Chennai Super Kings",
+    2020: "Delhi Capitals",
+    2021: "Kolkata Knight Riders",
+    2022: "Rajasthan Royals",
+    2023: "Gujarat Titans",
+    2024: "Sunrisers Hyderabad",
+    2025: "Punjab Kings"}
 
-teams = [
-    "Chennai Super Kings",
-    "Mumbai Indians",
-    "Royal Challengers Bangalore",
-    "Kolkata Knight Riders",
-    "Sunrisers Hyderabad",
-    "Rajasthan Royals",
-    "Delhi Capitals",
-    "Punjab Kings"
-]
+years = [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 
+ 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
 
-# Select Teams
-col1, col2 = st.columns(2)
-with col1:
-    team1 = st.selectbox("Select Team 1", teams, key="team1")
-with col2:
-    team2 = st.selectbox("Select Team 2", teams, key="team2")
+import random as rm
 
-if team1 == team2:
-    st.warning("Please select two different teams!")
-else:
-    if st.button("Simulate Match"):
-        score1 = random.randint(120, 220)
-        score2 = random.randint(120, 220)
-
-        st.subheader(f"{team1} scored: {score1} runs")
-        st.subheader(f"{team2} scored: {score2} runs")
-
-        if score1 > score2:
-            st.success(f"🏆 {team1} wins by {score1 - score2} runs!")
-        elif score2 > score1:
-            st.success(f"🏆 {team2} wins by {score2 - score1} runs!")
-        else:
-            st.info("It's a Tie! Super Over needed 🔥")
+import random as rm
 
 
 
-import streamlit as st
-import random
-import time
 
-st.set_page_config(page_title="IPL Live Match", layout="centered")
+teams = ['Rajasthan Royals', 'Deccan Chargers', 'Chennai Super Kings',
+ 'Kolkata Knight Riders', 'Mumbai Indians', 'Sunrisers Hyderabad',
+ 'Gujarat Titans', 'Royal Challengers Bengaluru', 'Royal Challengers Bangalore',
+ 'Kings XI Punjab', 'Rising Pune Supergiant', 'Delhi Capitals', 'Punjab Kings']
 
-st.title("🏏 IPL Live Match Simulator")
+if "year" not in st.session_state:
+    st.session_state.year = rm.choice(years)
 
-teams = [
-    "Chennai Super Kings",
-    "Mumbai Indians",
-    "Royal Challengers Bangalore",
-    "Kolkata Knight Riders",
-    "Sunrisers Hyderabad",
-    "Rajasthan Royals",
-    "Delhi Capitals",
-    "Punjab Kings"
-]
+c1,c2,c3 = st.columns([1,3,1]
+c2.write(st.session_state.year)
 
-# Ball outcomes & commentary
-outcomes = [
-    (0, "Dot ball"),
-    (1, "Single run"),
-    (2, "Two runs"),
-    (3, "Three runs"),
-    (4, "FOUR! What a shot!"),
-    (6, "SIX! Huge hit!"),
-    ("W", "WICKET! Clean bowled!")
-]
+a1,a2 = st.columns(2)
+a1.selectbox('winner team',teams)
+a2.selectbox('runner up team',teams)
 
-col1, col2 = st.columns(2)
-with col1:
-    team1 = st.selectbox("Select Team 1", teams, key="t1")
-with col2:
-    team2 = st.selectbox("Select Team 2", teams, key="t2")
 
-if team1 == team2:
-    st.warning("Please select two different teams!")
-else:
-    if st.button("Start Match"):
-        st.subheader(f"{team1} vs {team2}")
-        overs = 2  # For quick demo
-        total_score = 0
-        wickets = 0
-
-        commentary_placeholder = st.empty()
-        score_placeholder = st.empty()
-
-        for over in range(overs):
-            for ball in range(6):
-                outcome = random.choice(outcomes)
-                if outcome[0] == "W":
-                    wickets += 1
-                    commentary = outcome[1]
-                else:
-                    total_score += outcome[0]
-                    commentary = outcome[1]
-
-                # Update live commentary
-                commentary_placeholder.write(f"**Over {over}.{ball+1}** → {commentary}")
-                score_placeholder.subheader(f"Score: {total_score}/{wickets} in {over}.{ball+1} overs")
-
-                time.sleep(1)  # Simulate live delay
-
-        st.success(f"Innings Over! Final Score: {total_score}/{wickets} in {overs} overs")
+if st.button("🔄 Next Year"):
+    st.session_state.year = rm.choice(years)
+    st.rerun()
 
