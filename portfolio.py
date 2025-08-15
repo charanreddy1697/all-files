@@ -8,7 +8,7 @@ with c1:
 
 with c2:
     st.markdown(
-        "<p style='font-size:24px;'>CHARAN<br>KUMAR<br>REDDY<br>SOMAGARI</p>",
+        "<p style='font-size:24px;'><b><br><br><br><br>CHARAN<br>KUMAR<br>REDDY<br>SOMAGARI</b></p>",
         unsafe_allow_html=True
     )
 
