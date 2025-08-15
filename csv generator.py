@@ -45,7 +45,7 @@ if st.button('Generate CSV'):
     st.write('displaying top 5 rows')
 
     v1 = df.groupby('field_col_name').count()
-    st.write(v1)
+    st.dataframe(v1)
     
     # Download
     csv = df.to_csv(index=False)
