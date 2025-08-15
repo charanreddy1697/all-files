@@ -63,7 +63,7 @@ if "year" not in st.session_state:
 
 if 'score' not in st.session_state:
     st.session_state.score = 0
-c1,c2,c3,c4,c5 = st.columns([1,3,1])    
+c1,c2,c3 = st.columns([1,3,1])    
 with c2:
     st.title(f"IPL QUIZ GAME")
 
