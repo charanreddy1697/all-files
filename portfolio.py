@@ -16,5 +16,6 @@ with c2:
         Passionate about turning raw data into actionable insights, I strive to bridge the gap between complex datasets 
         and clear, impactful business outcomes.
         </p>
-        """ )
+        """ ,
+        unsafe_allow_html=True)
 
