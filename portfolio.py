@@ -7,7 +7,11 @@ with c1:
   st.image("charan photo.jpg",)
 
 with c2:
-    st.title("CHARAN\nKUMAR\nREDDY\nSOMAGARI")
+    st.markdown(
+        "<p style='font-size:24px;'>CHARAN<br>KUMAR<br>REDDY<br>SOMAGARI</p>",
+        unsafe_allow_html=True
+    )
+
     
     
 st.write('print the image bro')
