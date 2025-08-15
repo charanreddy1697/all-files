@@ -50,7 +50,7 @@ if st.button('Generate CSV'):
     
     # Count repetitions
     st.write('### Repetitions of each value')
-    v1 = df.groupby(field_col_name)['ID'].count().reset_index()
+    v1 = df.groupby(field_col_name)['ID'].count()
     v1.columns = [field_col_name, 'TIMES APPEARED']
     st.write(v1)
     
