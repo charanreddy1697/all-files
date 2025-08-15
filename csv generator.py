@@ -45,7 +45,7 @@ if st.button('Generate CSV'):
     st.write('displaying top 5 rows')
 
     # Download
-    csv = df.to_csv(index=False).encode('utf-8')
+    csv = df.to_csv(index=False)
     st.download_button(
         label="Download CSV",
         data=csv,
