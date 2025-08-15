@@ -60,13 +60,27 @@ teams = ['Rajasthan Royals', 'Deccan Chargers', 'Chennai Super Kings',
 if "year" not in st.session_state:
     st.session_state.year = rm.choice(years)
 
-c1,c2,c3 = st.columns([1,3,1])
+c1,c2,c3 = st.columns(3)
 c2.title(f"Year : {st.session_state.year}")
 
 a1,a2 = st.columns(2)
-a1.selectbox('Winner team',teams)
-a2.selectbox('Runner Up team',teams)
+w = a1.selectbox('Winner team',teams)
+r = a2.selectbox('Runner Up team',teams)
 
+b1,b2 = st.columns(2)
+
+with b1:        
+    if ipl_winners[st.session_state.year] == w :
+        st.write('correct')
+    else:
+        st.write(f"sorry, winners are : {ipl_winners[st.session_state.year]}")
+
+with b2:
+    if ipl_runner_ups[st.session_state.year] == r :
+        st.write('correct')
+    else:
+        st.write(f"sorry, runner ups are : {ipl_runner_ups[st.session_state.year]}")
+             
 
 if st.button("🔄 Next Year"):
     st.session_state.year = rm.choice(years)
