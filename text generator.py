@@ -5,13 +5,21 @@ import io
 st.title("🖼️ Text to Image (Matplotlib)")
 
 # User input
-user_text = st.text_input("Enter your text:", "Hello Streamlit!")
+user_text1 = st.text_input("Enter your text for main:", "Hello Streamlit!")
+user_text2 = st.text_input("Enter your text for list1:", "Hello Streamlit!")
+user_text3 = st.text_input("Enter your text for list2:", "Hello Streamlit!")
+user_text4 = st.text_input("Enter your text for list1:", "Hello Streamlit!")
 
 # Button to generate
 if st.button("Generate Image"):
     # Create figure
     fig, ax = plt.subplots(figsize=(6, 3))
-    ax.text(0.5, 0.5, user_text, fontsize=24, ha="center", va="center")
+    ax.text(0.1, 0.7, user_text1, fontsize=24, ha="center", va="center")
+    ax.text(0.1, 0.5, user_text2, fontsize=21, ha="center", va="center")
+    ax.text(0.1, 0.3, user_text3, fontsize=21, ha="center", va="center")  
+    ax.text(0.1, 0.1, user_text4, fontsize=21, ha="center", va="center")  
+    
+    
     ax.axis("off")  # Hide axes
 
     # Save to buffer
@@ -20,7 +28,7 @@ if st.button("Generate Image"):
     buf.seek(0)
 
     # Display image
-    st.image(buf, caption="Generated Image", use_column_width=True)
+    st.image(buf, caption="Generated Image")
 
     # Download button
     st.download_button(
