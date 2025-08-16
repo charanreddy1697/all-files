@@ -13,11 +13,31 @@ font_size = st.slider("Font size", 10, 50, 27)
 
 colr = st.selectbox('select color',['white','black','red']) 
 a1,a2 = st.columns([1,2])
+
+img = Image.new("RGB", (600, 450), color=colr)
+draw = ImageDraw.Draw(img)
+font = ImageFont.load_default(size=font_size)
+
+    # Handle multi-line text
+lines_limit = [30,90,150,210,270]
+lines = list(user_text.split("\n"))
+
+for i in range(len(lines)):
+        draw.text((50, lines_limit[i]), lines[i], fill="black", font=font)
+        
+# Save to buffer
+buf = io.BytesIO()
+img.save(buf, format="PNG")
+buf.seek(0)
+    
+# Display image
+st.image(buf, caption="Generated Image", use_container_width=True)
+
 # Button to generate image
 if a1.button("Generate Image"):
     # Create blank white image
     
-    img = Image.new("RGB", (450, 300), color=colr)
+    img = Image.new("RGB", (600, 450), color=colr)
     draw = ImageDraw.Draw(img)
 
     font = ImageFont.load_default(size=font_size)
