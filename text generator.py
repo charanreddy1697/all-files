@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import io
 
-st.title("🖼️ Text to Image (Matplotlib)")
+st.title("Text to Image")
 
 # User input
 user_text1 = st.text_input("Enter your text for main:", "Main Heading")
@@ -31,7 +31,7 @@ if st.button("Generate Image"):
     buf.seek(0)
 
     # Display image
-    st.image(buf, caption="Generated Image")
+    st.image(buf)
 
     # Download button
     st.download_button(
