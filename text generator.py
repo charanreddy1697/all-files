@@ -1,29 +1,28 @@
 import streamlit as st
-from PIL import Image, ImageDraw, ImageFont
+import matplotlib.pyplot as plt
 import io
 
-st.title("🖼️ Text to Image (Pillow)")
+st.title("🖼️ Text to Image (Matplotlib)")
 
 # User input
 user_text = st.text_input("Enter your text:", "Hello Streamlit!")
 
+# Button to generate
 if st.button("Generate Image"):
-    # Create blank image (white background)
-    img = Image.new("RGB", (500, 200), color="white")
-    d = ImageDraw.Draw(img)
-
-    # Use default font
-    d.text((50, 80), user_text, fill="black")
+    # Create figure
+    fig, ax = plt.subplots(figsize=(6, 3))
+    ax.text(0.5, 0.5, user_text, fontsize=24, ha="center", va="center")
+    ax.axis("off")  # Hide axes
 
     # Save to buffer
     buf = io.BytesIO()
-    img.save(buf, format="PNG")
+    plt.savefig(buf, format="png", bbox_inches="tight")
     buf.seek(0)
 
     # Display image
-    st.image(buf, caption="Generated Image")
+    st.image(buf, caption="Generated Image", use_column_width=True)
 
-    # Download option
+    # Download button
     st.download_button(
         label="Download Image",
         data=buf,
