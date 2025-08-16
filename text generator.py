@@ -20,7 +20,7 @@ if st.button("Generate Image"):
     buf.seek(0)
 
     # Display in Streamlit
-    st.image(buf, caption="Generated Image", use_column_width=True)
+    st.image(buf, caption="Generated Image")
 
     # Download option
     st.download_button(
