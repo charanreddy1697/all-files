@@ -1,42 +1,49 @@
 import streamlit as st
-import matplotlib.pyplot as plt
+from PIL import Image, ImageDraw, ImageFont
 import io
+import os
 
-st.title("Text to Image")
+st.title("🖼️ Text to Image Converter with Custom Fonts")
 
 # User input
-user_text1 = st.text_input("Enter your text for main:", "Main Heading")
-user_text2 = st.text_input("Enter your text for list1:", "Item 1")
-user_text3 = st.text_input("Enter your text for list2:", "Item 2")
-user_text4 = st.text_input("Enter your text for list3:", "Item 3")
+user_text = st.text_area("Enter your text:", "Hello Streamlit!")
 
-# Button to generate
+# Font size
+font_size = st.slider("Font size", 10, 50, 27)
+
+colr = st.selectbox('select color',['white','black','red']) 
+# Button to generate image
 if st.button("Generate Image"):
-    # Create figure
-    fig, ax = plt.subplots(figsize=(6, 4))
+    # Create blank white image
     
-    # Main text (top center)
-    ax.text(0.5, 0.8, user_text1, fontsize=24, ha="center", va="center")
+    img = Image.new("RGB", (600, 450), color=colr)
+    draw = ImageDraw.Draw(img)
+
+    font = ImageFont.load_default(size=font_size)
+
+    # Handle multi-line text
+    lines_limit = [30,90,150,210,270]
+    lines = list(user_text.split("\n"))
+    if len(lines) > 5:
+        st.warning('only 5 lines allowed')
+    else:
+            
+        
+        for i in range(len(lines)):
+            draw.text((50, lines_limit[i]), lines[i], fill="black", font=font)
+        
+        # Save to buffer
+        buf = io.BytesIO()
+        img.save(buf, format="PNG")
+        buf.seek(0)
     
-    # List items (left aligned under main text)
-    ax.text(0.2, 0.6, user_text2, fontsize=20, ha="left", va="center")
-    ax.text(0.2, 0.45, user_text3, fontsize=20, ha="left", va="center")
-    ax.text(0.2, 0.3, user_text4, fontsize=20, ha="left", va="center")
-    
-    ax.axis("off")  # Hide axes
-
-    # Save to buffer
-    buf = io.BytesIO()
-    plt.savefig(buf, format="png", bbox_inches="tight")
-    buf.seek(0)
-
-    # Display image
-    st.image(buf)
-
-    # Download button
-    st.download_button(
-        label="Download Image",
-        data=buf,
-        file_name="text_image.png",
-        mime="image/png"
-    )
+        # Display image
+        st.image(buf, caption="Generated Image", use_container_width=True)
+        
+        # Download button
+        st.download_button(
+            label="Download Image",
+            data=buf,
+            file_name="text_image.png",
+            mime="image/png"
+        )
