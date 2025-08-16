@@ -15,7 +15,7 @@ a1,a2 = st.columns([1,2])
 
 # User input
 user_text = st.text_area("Enter your text:", "Hello Streamlit!")
-a1,a2,a3 = st.columns([1,3,1])
+a1,a2,a3 = st.columns([1,1,1])
 img = Image.new("RGB", (600, 450), color=colr)
 draw = ImageDraw.Draw(img)
 font = ImageFont.load_default(size=font_size)
