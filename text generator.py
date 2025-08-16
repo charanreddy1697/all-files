@@ -1,50 +1,34 @@
 import streamlit as st
 import matplotlib.pyplot as plt
-st.title("🖼️ Text to Image Generator (Matplotlib)")
-
-x = [1, 2, 3, 4, 5]
-y = [2, 4, 1, 8, 7]
-
-# Create the figure
-fig, ax = plt.subplots()
-ax.plot(x, y, marker='o', linestyle='-', linewidth=2)
-
-# Labels and title
-ax.set_title("Simple Line Chart")
-ax.set_xlabel("X Axis")
-ax.set_ylabel("Y Axis")
-
-# Display in Streamlit
-st.pyplot(fig)
-import streamlit as st
-import matplotlib.pyplot as plt
 import io
 
-st.title("🖼️ Text to Image Generator (Matplotlib)")
+st.title("🖼️ Text & Chart Generator")
 
-# User text input
+# Text to Image Section
+st.header("Text to Image")
 user_text = st.text_input("Enter your text:", "Hello Streamlit!")
 
-# Button to generate image
 if st.button("Generate Image"):
-    # Create a figure
     fig, ax = plt.subplots(figsize=(6, 3))
-    ax.text(0.5, 0.5, user_text, fontsize=24, ha='center', va='center')
+    ax.text(0.5, 0.5, user_text, fontsize=24, ha="center", va="center")
     ax.axis("off")
 
-    # Save image to buffer
     buf = io.BytesIO()
     plt.savefig(buf, format="png", bbox_inches="tight", transparent=True)
     buf.seek(0)
 
-    # Display in Streamlit
-    st.image(buf, caption="Generated Image")
+    st.image(buf, caption="Generated Image", use_column_width=True)
+    st.download_button("Download Image", buf, "text_image.png", "image/png")
 
-    # Download option
-    st.download_button(
-        label="Download Image",
-        data=buf,
-        file_name="text_image.png",
-        mime="image/png"
-    )
+# Line Chart Section
+st.header("Line Chart")
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 1, 8, 7]
 
+fig2, ax2 = plt.subplots()
+ax2.plot(x, y, marker="o", linestyle="-", linewidth=2)
+ax2.set_title("Simple Line Chart")
+ax2.set_xlabel("X Axis")
+ax2.set_ylabel("Y Axis")
+
+st.pyplot(fig2)
