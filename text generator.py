@@ -24,6 +24,10 @@ font = ImageFont.load_default(size=font_size)
 lines_limit = [30,90,150,210,270]
 lines = list(user_text.split("\n"))
 
+if len(lines) > 5:
+    st.warning("Only 5 lines will be used.")
+
+
 for i in range(len(lines)):
         draw.text((50, lines_limit[i]), lines[i], fill="black", font=font)
         
