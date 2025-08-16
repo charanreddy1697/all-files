@@ -12,8 +12,9 @@ user_text = st.text_area("Enter your text:", "Hello Streamlit!")
 font_size = st.slider("Font size", 10, 50, 27)
 
 colr = st.selectbox('select color',['white','black','red']) 
+a1,a2 = st.columns([1,2])
 # Button to generate image
-if st.button("Generate Image"):
+if a1.button("Generate Image"):
     # Create blank white image
     
     img = Image.new("RGB", (600, 450), color=colr)
@@ -41,10 +42,9 @@ if st.button("Generate Image"):
         st.image(buf, caption="Generated Image", use_container_width=True)
         
         # Download button
-        st.download_button(
+        a2.download_button(
             label="Download Image",
             data=buf,
             file_name="text_image.png",
             mime="image/png"
         )
-
