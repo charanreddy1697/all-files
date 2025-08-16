@@ -17,7 +17,7 @@ a1,a2 = st.columns([1,2])
 if a1.button("Generate Image"):
     # Create blank white image
     
-    img = Image.new("RGB", (600, 450), color=colr)
+    img = Image.new("RGB", (450, 300), color=colr)
     draw = ImageDraw.Draw(img)
 
     font = ImageFont.load_default(size=font_size)
