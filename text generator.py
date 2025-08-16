@@ -47,3 +47,4 @@ if st.button("Generate Image"):
             file_name="text_image.png",
             mime="image/png"
         )
+
