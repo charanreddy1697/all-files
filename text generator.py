@@ -17,7 +17,7 @@ image_height = b2.number_input('Height',100,600,300)
 try:
         
     # User input
-    user_text = st.text_area("Enter your text:[ allows only 5 lines ]", "Tyep Here...")
+    user_text = st.text_area("Enter your text:   [ allows only 5 lines ]", "Type Here...")
     a1,a2,a3 = st.columns(3)
     img = Image.new("RGB", (image_width,image_height), color=colr)
     draw = ImageDraw.Draw(img)
