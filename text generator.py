@@ -17,7 +17,7 @@ image_height = b2.number_input('Height',100,600,300)
 try:
         
     # User input
-    user_text = st.text_area("Enter your text:", "Hello Streamlit!")
+    user_text = st.text_area("Enter your text:[ allows only 5 lines ]", "Tyep Here...")
     a1,a2,a3 = st.columns(3)
     img = Image.new("RGB", (image_width,image_height), color=colr)
     draw = ImageDraw.Draw(img)
@@ -26,10 +26,6 @@ try:
     # Handle multi-line text
     lines_limit = [30,90,150,210,270]
     lines = list(user_text.split("\n"))
-    
-    # if len(lines) > 5:
-    #     st.warning("Only 5 lines will be used.")
-    
     
     for i in range(len(lines)):
             draw.text((50, lines_limit[i]), lines[i], fill="black", font=font)
@@ -51,7 +47,5 @@ try:
             file_name="text_image.png",
             mime="image/png"
             )
-    
-    st.write('Here your Image')
 except:
-    st.write('your have type more than 5 lines')
+    st.write('your have typed more than 5 lines')
