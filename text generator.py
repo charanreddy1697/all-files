@@ -10,13 +10,15 @@ c1,c2 = st.columns([1,1])
 # Font size
 font_size = c1.slider("Font size", 10, 50, 27)
 
-colr = c2.selectbox('select color',['white','black','red','blue']) 
+colr = st.color_picker("Pick a background color", "#FFFFFF")
+image_width = st.number_input('Weidth',100,600,900)
+image_height = st.number_input('Height',100,300,600)
 try:
         
     # User input
     user_text = st.text_area("Enter your text:", "Hello Streamlit!")
     a1,a2,a3 = st.columns(3)
-    img = Image.new("RGB", (600, 450), color=colr)
+    img = Image.new("RGB", (image_width,image_height), color=colr)
     draw = ImageDraw.Draw(img)
     font = ImageFont.load_default(size=font_size)
     
