@@ -9,10 +9,11 @@ st.title("Text to Image Converter")
 c1,c2 = st.columns([1,1])
 # Font size
 font_size = c1.slider("Font size", 10, 50, 27)
+colr = c2.color_picker("Pick a background color", "#FFFFFF")
 
-colr = st.color_picker("Pick a background color", "#FFFFFF")
-image_width = st.number_input('Weidth',100,900,600)
-image_height = st.number_input('Height',100,600,300)
+b1,b2 = st.columns(2)
+image_width = b1.number_input('Weidth',100,900,600)
+image_height = b2.number_input('Height',100,600,300)
 try:
         
     # User input
