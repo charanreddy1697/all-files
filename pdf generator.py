@@ -15,7 +15,9 @@ if st.button("Generate PDF"):
         pdf.set_font("Arial", size=12)
         pdf.multi_cell(0, 10, text)
 
-        pdf_output = pdf.output(dest="S").encode("latin-1")
+        # In fpdf2, output(dest="S") gives bytes directly
+        pdf_output = pdf.output(dest="S")
+
         st.download_button(
             "⬇️ Download PDF",
             data=pdf_output,
