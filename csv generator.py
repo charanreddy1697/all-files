@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import random as rm
 
-st.title('YOUR CSV GENERATOR')
+st.title('CSV GENERATOR')
 
 # Rows input
 
@@ -10,8 +10,8 @@ rows = st.number_input('Enter the number of rows', min_value=1, max_value=10000,
 st.write('Specify the range for amount column')
 # Amount range
 b1, b2 = st.columns(2)
-amount_min = b1.number_input('Min amount', 1, 10, 1)
-amount_max = b2.number_input('Max amount', 10, 1000, 10)
+amount_min = b1.number_input('Min amount', 1, 10000, 1)
+amount_max = b2.number_input('Max amount', 10, 1000000000000, 10)
 
 # Column name for field values
 field_col_name = st.text_input('Enter field name (like City or Region)', placeholder='City')
