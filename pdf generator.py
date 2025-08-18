@@ -10,7 +10,7 @@ a1,a2 = st.columns(2)
 font = a1.selectbox('Font',['Arial', 'Times', 'Courier'])
 #Size = a2.number_input('Size')
 
-Size = st.selectbox("Size", ["A4", "Letter", "Custom"])
+Size = a2.selectbox("Size", ["A4", "Letter", "Custom"])
 
 if Size == "Custom":
     b1,b2 = st.columns(2)
