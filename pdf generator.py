@@ -7,7 +7,7 @@ st.title("PDF Maker")
 text = st.text_area("Enter your text here")
 
 a1,a2 = st.columns(2)
-font = a1.selectbox('Font','["Arial", "Times", "Courier"]')
+font = a1.selectbox('Font',"['Arial', 'Times', 'Courier']")
 Size = a2.number_input('Size')
 
 
