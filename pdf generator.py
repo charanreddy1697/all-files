@@ -8,7 +8,7 @@ text = st.text_area("Enter your text here")
 
 a1,a2,a3 = st.columns(3)
 font = a1.selectbox('Font Style',['Arial', 'Times', 'Courier'])
-Size = a2.number_input('Font Size')
+Size = a2.number_input('Font Size',9,60,12)
 
 Paper_size = a3.selectbox("Paper Size", ["A4", "Letter", "Custom"])
 
