@@ -24,4 +24,10 @@ with c2:
 
 st.markdown('''---''')
 
-st.write("You can try my, games below")
+st.title('You can try my apps below')
+a1,a2,a3,a4 = st.columns(4)
+
+a1.link_button('CSV maker', 'https://charansomagari-csv-generator.streamlit.app/')
+a2.link_button('PDF maker', 'https://charansomagari-pdf-generator.streamlit.app/')
+a3.link_button('IMAGE maker', 'https://charansomagari-image-generator.streamlit.app/')
+a4.link_button('IPL GAME', 'https://charansomagari-cricket-games.streamlit.app/')
