@@ -6,13 +6,13 @@ st.title("PDF Maker")
 # user input
 text = st.text_area("Enter your text here")
 
-a1,a2 = st.columns(2)
+a1,a2,a3 = st.columns(3)
 font = a1.selectbox('Font',['Arial', 'Times', 'Courier'])
-#Size = a2.number_input('Size')
+Size = a2.number_input('Size')
 
-Size = a2.selectbox("Size", ["A4", "Letter", "Custom"])
+Paper_size = a3.selectbox("Size", ["A4", "Letter", "Custom"])
 
-if Size == "Custom":
+if Paper_size == "Custom":
     b1,b2 = st.columns(2)
     w = b1.number_input("Width (mm)", 50, 500, 210)
     h = b2.number_input("Height (mm)", 50, 500, 297)
