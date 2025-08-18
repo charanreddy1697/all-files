@@ -1,10 +1,16 @@
 import streamlit as st
 from fpdf import FPDF
 
-st.title("📝 Simple PDF Maker")
+st.title("PDF Maker")
 
 # user input
 text = st.text_area("Enter your text here")
+
+a1,a2 = st.columns(2)
+font = a1.selectbox('Font','["Arial", "Times", "Courier"]')
+Size = a2.number_input('Size')
+
+
 
 if st.button("Generate PDF"):
     if text.strip() == "":
@@ -12,7 +18,7 @@ if st.button("Generate PDF"):
     else:
         pdf = FPDF()
         pdf.add_page()
-        pdf.set_font("Arial", size=12)
+        pdf.set_font(font, size=Size)
         pdf.multi_cell(0, 10, text)
 
         # convert to proper bytes
