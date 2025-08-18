@@ -24,9 +24,10 @@ value2 = c2.text_input("Value2", placeholder='city2')
 value3 = c3.text_input("Value3", placeholder='city3')
 
 
+a1,a2 = st.columns(2)
 # Generate CSV Button
 
-if st.button('Generate CSV'):
+if a1.button('Generate CSV'):
     ids = []
     fields = []
     amounts = []
@@ -54,7 +55,7 @@ if st.button('Generate CSV'):
     
     # Download
     csv = df.to_csv(index=False)
-    st.download_button(
+    a2.download_button(
         label="Download CSV",
         data=csv,
         file_name='generated_data.csv',
