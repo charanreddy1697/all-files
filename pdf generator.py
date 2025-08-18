@@ -21,8 +21,8 @@ else:
     page_format = Size
 
 
-
-if st.button("Generate PDF"):
+c1,c2 = st.columns(2)
+if c1.button("Generate PDF"):
     if text.strip() == "":
         st.warning("Please enter some text.")
     else:
@@ -34,7 +34,7 @@ if st.button("Generate PDF"):
         # convert to proper bytes
         pdf_output = bytes(pdf.output(dest="S"))
 
-        st.download_button(
+        c2.download_button(
             label="Download PDF",
             data=pdf_output,
             file_name="output.pdf",
