@@ -13,8 +13,9 @@ font = a1.selectbox('Font',['Arial', 'Times', 'Courier'])
 Size = st.selectbox("Size", ["A4", "Letter", "Custom"])
 
 if Size == "Custom":
-    w = st.number_input("Width (mm)", 50, 500, 210)
-    h = st.number_input("Height (mm)", 50, 500, 297)
+    b1,b2 = st.columns(2)
+    w = b1.number_input("Width (mm)", 50, 500, 210)
+    h = b2.number_input("Height (mm)", 50, 500, 297)
     page_format = (w, h)
 else:
     page_format = Size
@@ -34,7 +35,7 @@ if st.button("Generate PDF"):
         pdf_output = bytes(pdf.output(dest="S"))
 
         st.download_button(
-            label="⬇️ Download PDF",
+            label="Download PDF",
             data=pdf_output,
             file_name="output.pdf",
             mime="application/pdf"
