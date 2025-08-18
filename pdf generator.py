@@ -7,10 +7,10 @@ st.title("PDF Maker")
 text = st.text_area("Enter your text here")
 
 a1,a2,a3 = st.columns(3)
-font = a1.selectbox('Font',['Arial', 'Times', 'Courier'])
-Size = a2.number_input('Size')
+font = a1.selectbox('Font Style',['Arial', 'Times', 'Courier'])
+Size = a2.number_input('Font Size')
 
-Paper_size = a3.selectbox("Size", ["A4", "Letter", "Custom"])
+Paper_size = a3.selectbox("Paper Size", ["A4", "Letter", "Custom"])
 
 if Paper_size == "Custom":
     b1,b2 = st.columns(2)
