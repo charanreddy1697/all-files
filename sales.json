@@ -1,0 +1,32 @@
+{
+  "Sales": [
+    {
+      "SaleID": 1,
+      "Customer": {
+        "Name": "John Doe",
+        "Region": "East"
+      },
+      "Product": {
+        "Name": "Laptop",
+        "Category": "Electronics"
+      },
+      "Quantity": 2,
+      "Amount": 1200.50,
+      "SaleDate": "2025-12-01"
+    },
+    {
+      "SaleID": 2,
+      "Customer": {
+        "Name": "Jane Smith",
+        "Region": "West"
+      },
+      "Product": {
+        "Name": "Phone",
+        "Category": "Electronics"
+      },
+      "Quantity": 1,
+      "Amount": 800.00,
+      "SaleDate": "2025-12-02"
+    }
+  ]
+}
